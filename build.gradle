@@ -1,0 +1,31 @@
+plugins {
+    id "io.freefair.lombok" version "6.5.0-rc1"
+
+    id 'java'
+    id 'war'
+}
+
+group = 'tk.empee'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-context:5.3.21'
+
+    //Web
+    implementation 'org.springframework:spring-webmvc:5.3.21'
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+
+    //Data persistence
+    implementation 'mysql:mysql-connector-java:8.0.29'
+    implementation 'org.springframework:spring-orm:5.3.21'
+    implementation 'org.hibernate:hibernate-core:5.6.9.Final'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
